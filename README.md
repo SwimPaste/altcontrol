@@ -16,5 +16,5 @@
   - -host <string> // host user ❗CASE SENSETIVE AND REAL USER ONLY❗
   - -say <string> // says something
 # credits
-  Dark Eccentric for FE Player control
-  EdgeIY for infinite yield chatlog and commands
+-  Dark Eccentric for FE Player control
+-  EdgeIY for infinite yield chatlog and commands
