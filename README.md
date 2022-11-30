@@ -3,7 +3,7 @@
   really bad written
   if statement spammed
   poorly used infinite yield
-## CMDS
+# CMDS
   -lua <string> // executes lua
   -reset // resets all
   -savecpu // saves cpu
@@ -15,6 +15,6 @@
   -repeat <true or false> // repeats ANY message BY host
   -host <string> // host user ❗CASE SENSETIVE AND REAL USER ONLY❗
   -say <string> // says something
-## credits
+# credits
   Dark Eccentric for FE Player control
   EdgeIY for infinite yield chatlog and commands
