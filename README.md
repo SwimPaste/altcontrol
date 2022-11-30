@@ -1,8 +1,8 @@
 # altcontrol
-  yandere dev coded | skidded | stable code
-  really bad written
-  if statement spammed
-  poorly used infinite yield
+-  yandere dev coded
+-  really bad written
+-  if statement spammed
+-  poorly used infinite yield
 # commands
   - -lua <string> // executes lua
   - -reset // resets all
