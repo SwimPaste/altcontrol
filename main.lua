@@ -1,23 +1,22 @@
-getgenv().host = "BooIeanVaIue" --main host / sudo
+getgenv().host = "IiminaI_space" --main host / sudo
 getgenv().host2 = nil --friend host / no sudo
---[[
-getgenv().alts = {
-    Alt1 = 1,
-    Alt2 = 1,
-    Alt3 = 1,
-    Alt4 = 1,
-    Alt5 = 1,
-    Alt6 = 1,
-    Alt7 = 1,
-    Alt8 = 1,
-    Alt9 = 1,
-    Alt10 = 1 -- MAX IS 10
-}
-]]-- useless
+getgenv().chatrepeat = true -- repeats or nah
+getgenv().fpscap = 60 -- fps cap
+getgenv().raidname = "raidnamevar" --raid spam name
+--[[ TODO!
+alt1 = "swimdroid_1"
+alt2 = "swimdroid_2"
+alt3 = "swimdroid_3"
+alt4 = "swimdroid_4"
+alt5 = "swimdroid_5"
+]]--
+---obf lower!!!
+
+getgenv().exitbool = false
 local plr = game:GetService("Players").LocalPlayer
 if plr.Name ~= host then
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SwimPaste/rbxscripts/main/antiban.lua'))()
-setfpscap(60)
+setfpscap(fpscap)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 execCmd("antiafk")
 local chat = function(MSG) -- creo thing
@@ -163,11 +162,61 @@ if messageDoneFiltering:IsA("RemoteEvent") then
                 message = "/team " .. message
             end
             eventEditor.FireEvent("OnChatted", player, message)
+
+            --[[
+                SPECIAL EVENTS
+            ]]--
+
+            if player == host and chatrepeat == true and message:lower():sub(1,1)==" " then
+                execCmd("say "..message)
+            end
+            -----END-----
+
             --[[
                 HOST DIRECTORY LOWER
             ]]--
             if player == host and message:lower():sub(1,4) == "-say" then
                 execCmd("say "..message:sub(6))
+            end
+            if player == host and message:lower():sub(1,4) == "-sus" then
+                execCmd("bang "..message:sub(6))
+            end
+            if player == host and message:lower():sub(1,10) == "-websocket" then
+                execCmd("say visit swimpaste on github for websocket edition")
+            end
+            if player == host and message:lower():sub(1,9) == "-raidname" then
+                getgenv().raidname = message:upper():sub(11)
+            end
+            if player == host and message:lower():sub(1,5) == "-raid" then
+                execCmd("spamspeed 3")
+                execCmd("spam SERVER RAIDED BY "..raidname.. " /// SERVER RAIDED BY"..raidname.. " /// SERVER RAIDED BY"..raidname.. " /// SERVER RAIDED BY"..raidname.. " /// SERVER RAIDED BY"..raidname.. " /// SERVER RAIDED BY"..raidname.. " /// SERVER RAIDED BY"..raidname.. " /// SERVER RAIDED BY"..raidname)
+            end
+            if player == host and message:lower():sub(1,7) == "-unraid" then
+                execCmd("unspam")
+            end
+            if player == host and message:lower():sub(1,4) == "-pre" then
+                execCmd("stun")
+                wait(0.5)
+                execCmd("noanim")
+                wait(0.1)
+                execCmd("unstun")
+            end
+            if player == host and message:lower():sub(1,9) == "-timefarm" then
+                execCmd("float")
+                wait(0.1)
+                execCmd("jump")
+                wait(0.5)
+                execCmd("follow "..host)
+            end
+            if player == host and message:lower():sub(1,10) == "-funnyjump" then
+                setfpscap(1)
+                execCmd("jump")
+                wait(10)
+                setfpscap(60)
+            end
+            if player == host and message:lower():sub(1,9) == "-slowgoto" then
+                execCmd("tspeed 30")
+                execCmd("tgoto "..host)
             end
             if player == host and message:lower():sub(1,5) == "-host" then
                 execCmd("say You've been provided with bot access, type -cmds for commands: "..message:sub(7))
@@ -175,19 +224,16 @@ if messageDoneFiltering:IsA("RemoteEvent") then
             end
             if player == host and message:lower():sub(1,7) == "-repeat" then
                 if message:sub(9) == "true" then
-                    _G.chatrepeat = true
+                    getgenv().chatrepeat = true
                 elseif message:sub(9) == "false" then
-                    _G.chatrepeat = false
+                    getgenv().chatrepeat = false
                 end
             end
             if player == host and message:lower():sub(1,7) == "-tohost" then
                 execCmd("goto "..host)
             end
-            if player == host and _G.chatrepeat == true then
-                execCmd("say "..message)
-            end
             if player == host and message:lower():sub(1,5) == "-cmds" then
-                execCmd("say search swimpaste on github for cmds")
+                execCmd("say no")
             end
             if player == host and message:lower():sub(1,3) == "-iy" then
                 execCmd(message:sub(5))
@@ -208,12 +254,69 @@ if messageDoneFiltering:IsA("RemoteEvent") then
             if player == host and message:lower():sub(1,4) == "-lua" then
                 loadstring(message:sub(6))()
             end
+            if player == host and message:lower():sub(1,5) == "-test" then
+                execCmd("say whats 9+10")
+                if message == "21" then
+                    execCmd("u stuped")
+                elseif message == "19" then
+                    execCmd("ure smart!!")
+                end
+            end
+            if player == host and message:lower():sub(1,5) == "-exit" then
+                if exitbool then
+                    execCmd("exit")
+                elseif message:lower():sub(7) == "false" then
+                    getgenv().exitbool = false
+                else
+                    execCmd("say say again to confirm or -exit false")
+                    getgenv().exitbool = true
+                end
+            end
+            if player == host and message:lower():sub(1,7) == "-follow" then
+                execCmd("follow "..host)
+            end
+            if player == host and message:lower():sub(1,9) == "-unfollow" then
+                execCmd("unfollow")
+            end
+            if player == host and message:lower():sub(1,10) == "-kaijufarm" then
+                execCmd("loopgoto "..host.. " 6 0")
+            end
+            if player == host and message:lower():sub(1,8) == "-clantag" then
+                while true do
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("🔥swimmm_🔥")
+                wait(0.5)
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("🔥alt🔥")
+                wait(0.5)
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("🔥control🔥")
+                wait(0.5)
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("💀swimmm_💀")
+                wait(0.5)
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("💀alt💀")
+                wait(0.5)
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("💀control💀")
+                wait(0.5)
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("😈swimmm_😈")
+                wait(0.5)
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("😈alt😈")
+                wait(0.5)
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("😈control😈")
+                wait(0.5)
+                end
+            end
             ---------END------------
             --[[
                 HOST2 DIRECTORY LOWER
             ]]--
             if player == host2 and message:lower():sub(1,4) == "-say" then
                 execCmd("say "..message:sub(6))
+            end
+            if player == host2 and message:lower():sub(1,4) == "-test" then
+                execCmd("say whats 9+10")
+                if message == "21" then
+                    execCmd("u stuped")
+                elseif message == "19" then
+                    execCmd("ure smart!!")
+                end
             end
             if player == host2 and message:lower():sub(1,5) == "-host" then
                 execCmd("say You've been provided with bot access, type -cmds for commands: "..message:sub(7))
@@ -223,7 +326,7 @@ if messageDoneFiltering:IsA("RemoteEvent") then
                 execCmd("goto "..host2)
             end
             if player == host2 and message:lower():sub(1,5) == "-cmds" then
-                execCmd("say search swimpaste on github for cmds")
+                execCmd("say u stuped")
             end
             if player == host2 and message:lower():sub(1,3) == "-iy" then
                 execCmd(message:sub(5))
@@ -235,6 +338,65 @@ if messageDoneFiltering:IsA("RemoteEvent") then
                 execCmd(message:sub(11))
             end
             -------------END---------------
+            if player == host and message:lower() == "in the end" then
+                --VERSE 1
+                execCmd("say It starts with one.")
+                wait(3)
+                execCmd("say One thing, I don't know why It doesn't even matter how hard you try")
+                wait(3)
+                execCmd("say Keep that in mind, I designed this rhyme To explain in due time all I know")
+                wait(3)
+                execCmd("say Time is a valuable thing Watch it fly by as the pendulum swings")
+                wait(3)
+                execCmd("say Watch it count down to the end of the day The clock ticks life away, it's so unreal (It's so unreal)")
+                wait(3)
+                execCmd("say Didn't look out below Watch the time go right out the window")
+                wait(3)
+                execCmd("say Tryin' to hold on, didn't even know")
+                wait(3)
+                execCmd("say I wasted it all just to watch you go")
+                wait(3)
+                --PRECHORUS
+                execCmd("say I kept everything inside And even though I tried, it all fell apart")
+                wait(3)
+                execCmd("say What it meant to me will eventually be A memory of a time when I tried so hard")
+                wait(3)
+                --CHORUS
+                execCmd("say I tried so hard and got so far")
+                wait(3)
+                execCmd("say But in the end it doesn't even matter")
+                wait(3)
+                execCmd("say I had to fall to lose it all")
+                wait(3)
+                execCmd("say But in the end it doesn't even matter")
+                wait(3)
+                --VERSE 2
+                execCmd("say One thing, I don't know why It doesn't even matter how hard you try")
+                wait(3)
+                execCmd("say Keep that in mind, I designed this rhyme To remind myself how I tried so hard")
+                wait(3)
+                execCmd("say To remind myself how I tried so hard Actin' like I was part of your property")
+                wait(3)
+                execCmd("say Rememberin' all the times you fought with me I'm surprised it got so far")
+                wait(3)
+                execCmd("say Things aren't the way they were before You wouldn't even recognize me anymore")
+                wait(3)
+                execCmd("say Not that you knew me back then But it all comes back to me in the end")
+                wait(3)
+                --PRECHORUS
+                execCmd("say I kept everything inside And even though I tried, it all fell apart")
+                wait(3)
+                execCmd("say What it meant to me will eventually be A memory of a time when I tried so hard")
+                wait(3)
+                --CHORUS
+                execCmd("say I tried so hard and got so far")
+                wait(3)
+                execCmd("say But in the end it doesn't even matter")
+                wait(3)
+                execCmd("say I had to fall to lose it all")
+                wait(3)
+                execCmd("say But in the end it doesn't even matter")
+            end
         end
     end)
 end
@@ -242,7 +404,7 @@ print("exectued success")
 else
 	local notLoaded = Instance.new("Message")
 	notLoaded.Parent = game:GetService("CoreGui")
-	notLoaded.Text = 'script running on host'
+	notLoaded.Text = 'script running on host, gui will show up\nmade by swimdroid\nhttps://discord.gg/N4Rrn7rqU4'
 	wait(5)
 	notLoaded:Destroy()
 end
