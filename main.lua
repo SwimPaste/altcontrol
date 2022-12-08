@@ -307,11 +307,16 @@ if messageDoneFiltering:IsA("RemoteEvent") then
             --[[
                 HOST2 DIRECTORY LOWER
             ]]--
-            --[[
-                HOST2 DIRECTORY LOWER
-            ]]--
             if player == host2 and message:lower():sub(1,4) == "-say" then
                 execCmd("say "..message:sub(6))
+            end
+            if player == host2 and message:lower():sub(1,4) == "-test" then
+                execCmd("say whats 9+10")
+                if message == "21" then
+                    execCmd("u stuped")
+                elseif message == "19" then
+                    execCmd("ure smart!!")
+                end
             end
             if player == host2 and message:lower():sub(1,5) == "-host" then
                 execCmd("say You've been provided with bot access, type -cmds for commands: "..message:sub(7))
@@ -320,11 +325,17 @@ if messageDoneFiltering:IsA("RemoteEvent") then
             if player == host2 and message:lower():sub(1,7) == "-tohost" then
                 execCmd("goto "..host2)
             end
-            if player == host2 and message:lower():sub(1,7) == "-follow" then
-                execCmd("follow "..host)
-            end
             if player == host2 and message:lower():sub(1,5) == "-cmds" then
-                execCmd("say -say anything // -tohost // -host cAsE sEnSeTiVe!! // -follow // -cmds")
+                execCmd("say u stuped")
+            end
+            if player == host2 and message:lower():sub(1,3) == "-iy" then
+                execCmd(message:sub(5))
+            end
+            if player == host2 and message:lower():sub(1,9) == "-infyield" then
+                execCmd(message:sub(11))
+            end
+            if player == host2 and message:lower():sub(1,9) == "-iy_admin" then
+                execCmd(message:sub(11))
             end
             -------------END---------------
             if player == host and message:lower() == "in the end" then
