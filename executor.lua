@@ -1,13 +1,4 @@
--- (VOID) : Gui to Lua
--- Version: 1.4
-
--- Instances:
-pcall(function()
-	Nexus_Version = 101
-	loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua')()
-	Nexus:Connect()
-end)
-
+--minor fix
 local maingui = Instance.new("ScreenGui")
 local mainframe = Instance.new("Frame")
 local topbar = Instance.new("Frame")
