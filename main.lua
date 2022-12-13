@@ -1,8 +1,8 @@
-getgenv().host = "IiminaI_space" --main host / sudo
+getgenv().host = "BooIeanVaIue" --main host / sudo
 getgenv().host2 = nil --friend host / no sudo
 getgenv().chatrepeat = true -- repeats or nah
 getgenv().fpscap = 60 -- fps cap
-getgenv().raidname = "raidnamevar" --raid spam name
+getgenv().raidname = host --raid spam name
 --[[ TODO!
 alt1 = "swimdroid_1"
 alt2 = "swimdroid_2"
@@ -13,6 +13,7 @@ alt5 = "swimdroid_5"
 ---obf lower!!!
 
 getgenv().exitbool = false
+getgenv().Attack = false
 local plr = game:GetService("Players").LocalPlayer
 if plr.Name ~= host then
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SwimPaste/rbxscripts/main/antiban.lua'))()
@@ -170,6 +171,7 @@ if messageDoneFiltering:IsA("RemoteEvent") then
             if player == host and chatrepeat == true and message:lower():sub(1,1)==" " then
                 execCmd("say "..message)
             end
+            
             -----END-----
 
             --[[
@@ -278,45 +280,52 @@ if messageDoneFiltering:IsA("RemoteEvent") then
             if player == host and message:lower():sub(1,9) == "-unfollow" then
                 execCmd("unfollow")
             end
-            if player == host and message:lower():sub(1,10) == "-kaijufarm" then
-                execCmd("loopgoto "..host.. " 6 0")
+            if player == host and message:lower():sub(1,3) == "-ls" then
+                if message:lower():sub(5) == "atck" then
+                    if message:lower():sub(10) == "true" then
+                        getgenv().Attack = true
+                        execCmd("equiptools")
+                    elseif message:lower():sub(10) == "false" then
+                        getgenv().Attack = false
+                        execCmd("say delighted?")
+                    end
+                end
+            end
+            if player == host and message:lower():sub(1,3) == "-kp" then
+                if message:lower():sub(5) == "farm" then
+                    execCmd("noclip")
+                    wait(0.3)
+                    execCmd("loopgoto "..host.. " 6 0")
+                elseif message:lower():sub(5) == "infect" then
+                    execCmd("goto "..host)
+                    wait(0.05)
+                    execCmd("noclip")
+                    wait(0.05)
+                    local oldPos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+                    execCmd("noclip")
+                    wait(0.05)
+                    for i=1,60 do
+                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(250.406143, -12.3250103, -424.536591)
+                        wait(0.3)
+                    end
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldPos
+                end
             end
             if player == host and message:lower():sub(1,8) == "-clantag" then
-                while true do
-                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("🔥swimmm_🔥")
-                wait(0.5)
-                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("🔥alt🔥")
-                wait(0.5)
-                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("🔥control🔥")
-                wait(0.5)
-                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("💀swimmm_💀")
-                wait(0.5)
-                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("💀alt💀")
-                wait(0.5)
-                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("💀control💀")
-                wait(0.5)
-                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("😈swimmm_😈")
-                wait(0.5)
-                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("😈alt😈")
-                wait(0.5)
-                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer("😈control😈")
-                wait(0.5)
-                end
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer(message:sub(10))
             end
             ---------END------------
             --[[
                 HOST2 DIRECTORY LOWER
             ]]--
+            if player == host and message:lower():sub(1,7) == "-follow" then
+                execCmd("follow "..host)
+            end
+            if player == host and message:lower():sub(1,9) == "-unfollow" then
+                execCmd("unfollow")
+            end 
             if player == host2 and message:lower():sub(1,4) == "-say" then
                 execCmd("say "..message:sub(6))
-            end
-            if player == host2 and message:lower():sub(1,4) == "-test" then
-                execCmd("say whats 9+10")
-                if message == "21" then
-                    execCmd("u stuped")
-                elseif message == "19" then
-                    execCmd("ure smart!!")
-                end
             end
             if player == host2 and message:lower():sub(1,5) == "-host" then
                 execCmd("say You've been provided with bot access, type -cmds for commands: "..message:sub(7))
@@ -325,78 +334,40 @@ if messageDoneFiltering:IsA("RemoteEvent") then
             if player == host2 and message:lower():sub(1,7) == "-tohost" then
                 execCmd("goto "..host2)
             end
-            if player == host2 and message:lower():sub(1,5) == "-cmds" then
-                execCmd("say u stuped")
+            if player == host2 and message:lower():sub(1,8) == "-clantag" then
+                game:GetService("ReplicatedStorage").Remote.ChangePlayerName:FireServer(message:sub(10))
             end
-            if player == host2 and message:lower():sub(1,3) == "-iy" then
-                execCmd(message:sub(5))
-            end
-            if player == host2 and message:lower():sub(1,9) == "-infyield" then
-                execCmd(message:sub(11))
-            end
-            if player == host2 and message:lower():sub(1,9) == "-iy_admin" then
-                execCmd(message:sub(11))
+            ------------------kaiju paradise
+            if player == host2 and message:lower():sub(1,3) == "-kp" then
+                if message:lower():sub(5) == "farm" then
+                    execCmd("noclip")
+                    wait(0.3)
+                    execCmd("loopgoto "..host2.. " 6 0")
+                elseif message:lower():sub(5) == "infect" then
+                    execCmd("goto "..host2)
+                    wait(0.05)
+                    execCmd("noclip")
+                    wait(0.05)
+                    local oldPos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+                    execCmd("noclip")
+                    wait(0.05)
+                    for i=1,60 do
+                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(250.406143, -12.3250103, -424.536591)
+                        wait(0.3)
+                    end
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldPos
+                end
             end
             -------------END---------------
-            if player == host and message:lower() == "in the end" then
-                --VERSE 1
-                execCmd("say It starts with one.")
-                wait(3)
-                execCmd("say One thing, I don't know why It doesn't even matter how hard you try")
-                wait(3)
-                execCmd("say Keep that in mind, I designed this rhyme To explain in due time all I know")
-                wait(3)
-                execCmd("say Time is a valuable thing Watch it fly by as the pendulum swings")
-                wait(3)
-                execCmd("say Watch it count down to the end of the day The clock ticks life away, it's so unreal (It's so unreal)")
-                wait(3)
-                execCmd("say Didn't look out below Watch the time go right out the window")
-                wait(3)
-                execCmd("say Tryin' to hold on, didn't even know")
-                wait(3)
-                execCmd("say I wasted it all just to watch you go")
-                wait(3)
-                --PRECHORUS
-                execCmd("say I kept everything inside And even though I tried, it all fell apart")
-                wait(3)
-                execCmd("say What it meant to me will eventually be A memory of a time when I tried so hard")
-                wait(3)
-                --CHORUS
-                execCmd("say I tried so hard and got so far")
-                wait(3)
-                execCmd("say But in the end it doesn't even matter")
-                wait(3)
-                execCmd("say I had to fall to lose it all")
-                wait(3)
-                execCmd("say But in the end it doesn't even matter")
-                wait(3)
-                --VERSE 2
-                execCmd("say One thing, I don't know why It doesn't even matter how hard you try")
-                wait(3)
-                execCmd("say Keep that in mind, I designed this rhyme To remind myself how I tried so hard")
-                wait(3)
-                execCmd("say To remind myself how I tried so hard Actin' like I was part of your property")
-                wait(3)
-                execCmd("say Rememberin' all the times you fought with me I'm surprised it got so far")
-                wait(3)
-                execCmd("say Things aren't the way they were before You wouldn't even recognize me anymore")
-                wait(3)
-                execCmd("say Not that you knew me back then But it all comes back to me in the end")
-                wait(3)
-                --PRECHORUS
-                execCmd("say I kept everything inside And even though I tried, it all fell apart")
-                wait(3)
-                execCmd("say What it meant to me will eventually be A memory of a time when I tried so hard")
-                wait(3)
-                --CHORUS
-                execCmd("say I tried so hard and got so far")
-                wait(3)
-                execCmd("say But in the end it doesn't even matter")
-                wait(3)
-                execCmd("say I had to fall to lose it all")
-                wait(3)
-                execCmd("say But in the end it doesn't even matter")
+            --THE function
+            function Attack()
+                spawn(function()
+                    while getgenv().Attack == true do
+                        game:GetService("ReplicatedStorage").Events.WeaponEvent:FireServer("Swing")
+                    end
+                end)
             end
+            -----END-----
         end
     end)
 end
