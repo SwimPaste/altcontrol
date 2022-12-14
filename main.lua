@@ -1,5 +1,5 @@
 getgenv().host = "BooIeanVaIue" --main host / sudo
-getgenv().host2 = nil --friend host / no sudo
+getgenv().host2 = "" --friend host / no sudo
 getgenv().chatrepeat = true -- repeats or nah
 getgenv().fpscap = 60 -- fps cap
 getgenv().raidname = host --raid spam name
