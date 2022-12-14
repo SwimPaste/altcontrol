@@ -7,30 +7,7 @@
 -  use RBX alt manager to use websocket
 -  https://github.com/ic3w0lf22/Roblox-Account-Manager
 # commands
-  - -lua <string> // executes lua
-  - -reset // resets all
-  - -savecpu // saves cpu ❗MUST USE SYNAPSE FPS UNLOCKER❗
-  - -iy_admin <string> // infinite yield
-  - -iy <string> // infinite yield
-  - -infyield <string> // infinite yield
-  - -cmds // useless
-  - -tohost // brings all to host
-  - -repeat <true or false> // repeats ANY message BY host
-  - -host <string> // host user ❗CASE SENSETIVE AND REAL USER ONLY❗
-  - -clantag // kaiju paradise clantag
-  - -kaijufarm // farm for kaiju
-  - -follow // follows host
-  - -unfollow // unfollows host
-  - -exit // exits
-  - -reset // resets alts
-  - -slowgoto // tweens to host slowly
-  - -funnyjump // funny jump with 1fps
-  - -timefarm // fuck nigggers // steal time from others thing to farm
-  - -pre // no shake thing idk
-  - -raid // spams your name /default host name
-  - -unraid // unspams
-  - -raidname // the raid command name
-  - -sus // bang command
+- you can find them at cmds file
 # credits
 -  Dark Eccentric for FE Player control
 -  EdgeIY for infinite yield chatlog and commands
