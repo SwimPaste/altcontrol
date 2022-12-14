@@ -7,7 +7,7 @@
 -  use RBX alt manager to use websocket
 -  https://github.com/ic3w0lf22/Roblox-Account-Manager
 # commands
-- you can find them at cmds file
+- too lazy to write bbb
 # credits
 -  Dark Eccentric for FE Player control
 -  EdgeIY for infinite yield chatlog and commands
