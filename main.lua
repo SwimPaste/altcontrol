@@ -3,14 +3,15 @@ getgenv().host2 = nil --friend host / no sudo
 getgenv().chatrepeat = true -- repeats or nah
 getgenv().fpscap = 60 -- fps cap
 getgenv().raidname = host --raid spam name
+--[[
 getgenv().alts = {
-    alt1 = "asdfun0x448",
-    alt2 = "ion_Imfao",
-    alt3 = "nohat_swimdroid",
-    alt4 = "OwlHubTOP",
-    alt5 = "swimhvh"
-} 
-
+    alt1 = "",
+    alt2 = "",
+    alt3 = "",
+    alt4 = "",
+    alt5 = ""
+} ----useless
+]]--
 
 ---obf lower!!!
 
