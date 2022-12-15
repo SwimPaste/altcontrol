@@ -3,7 +3,7 @@
 -  really bad written
 -  if statement spammed
 -  poorly used infinite yield
--  fucking dogshit websocket support
+-  no websocket cuz im too bad
 -  use RBX alt manager to use websocket
 -  https://github.com/ic3w0lf22/Roblox-Account-Manager
 # commands
