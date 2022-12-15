@@ -1,17 +1,15 @@
 getgenv().host = "BooIeanVaIue" --main host / sudo
-getgenv().host2 = "" --friend host / no sudo
+getgenv().host2 = nil --friend host / no sudo
 getgenv().chatrepeat = true -- repeats or nah
 getgenv().fpscap = 60 -- fps cap
 getgenv().raidname = host --raid spam name
---[[
 getgenv().alts = {
     alt1 = "",
     alt2 = "",
     alt3 = "",
     alt4 = "",
     alt5 = ""
-} ----useless
-]]--
+}
 
 ---obf lower!!!
 
@@ -74,10 +72,55 @@ if messageDoneFiltering:IsA("RemoteEvent") then
             if player == host and message:lower():sub(1,7) == "-unraid" then
                 execCmd("unspam")
             end
-            if player == host and message:lower():sub(1,6) == "-count" then
+            if player == host and message:lower() == "-farmkaijuparadiseyesiconfirmthat" then
+                while wait() do
+                    execCmd("goto "..host)
+                    wait(0.05)
+                    execCmd("noclip")
+                    wait(0.05)
+                    local oldPos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+                    execCmd("noclip")
+                    wait(0.05)
+                    for i=1,60 do
+                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(250.406143, -12.3250103, -424.536591)
+                        wait(0.3)
+                    end
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldPos
+                    wait(60)
+                end
+            end
+            if player == host and message:lower():sub(1,7) == "-german" then
                 for i, v in pairs(alts) do
-                    if plr.Name == v[i] then
-                        execCmd("say alt"..i)
+                    if plr.Name == v then
+                        if tostring(i) == "alt1" then
+                            execCmd("say 🛑🛑📰📰🛑🛑🛑🛑🛑🛑")
+                            wait(0.1)
+                            execCmd("say 🛑🛑📰📰🛑🛑🛑🛑🛑🛑")
+                        end
+                        if tostring(i) == "alt2" then
+                            wait(0.15)
+                            execCmd("say 🛑🛑📰📰🛑🛑📰📰📰📰")
+                            wait(0.1)
+                            execCmd("say 🛑🛑📰📰🛑🛑📰📰📰📰")
+                        end
+                        if tostring(i) == "alt3" then
+                            wait(0.30)
+                            execCmd("say 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑")
+                            wait(0.1)
+                            execCmd("say 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑")
+                        end
+                        if tostring(i) == "alt4" then
+                            wait(0.45)
+                            execCmd("say 📰📰📰📰🛑🛑📰📰🛑🛑")
+                            wait(0.1)
+                            execCmd("say 📰📰📰📰🛑🛑📰📰🛑🛑")
+                        end
+                        if tostring(i) == "alt5" then
+                            wait(0.70)
+                            execCmd("say 🛑🛑🛑🛑🛑🛑📰📰🛑🛑")
+                            wait(0.1)
+                            execCmd("say 🛑🛑🛑🛑🛑🛑📰📰🛑🛑")
+                        end
                     end
                 end
             end
