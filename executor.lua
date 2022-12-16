@@ -54,20 +54,6 @@ closebuton.TextScaled = true
 closebuton.TextSize = 14.000
 closebuton.TextWrapped = true
 
-minimizebutton.Name = "minimizebutton"
-minimizebutton.Parent = topbar
-minimizebutton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-minimizebutton.BackgroundTransparency = 1.000
-minimizebutton.BorderSizePixel = 0
-minimizebutton.Position = UDim2.new(0.835164785, 0, 0, 0)
-minimizebutton.Size = UDim2.new(0, 60, 0, 25)
-minimizebutton.Font = Enum.Font.SourceSans
-minimizebutton.Text = "-"
-minimizebutton.TextColor3 = Color3.fromRGB(255, 255, 255)
-minimizebutton.TextScaled = true
-minimizebutton.TextSize = 14.000
-minimizebutton.TextWrapped = true
-
 altcontroltext.Name = "altcontroltext"
 altcontroltext.Parent = topbar
 altcontroltext.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -107,7 +93,6 @@ cmds.Font = Enum.Font.SourceSansBold
 cmds.LineHeight = 0.990
 cmds.Text = "inbound things: iy"
 cmds.TextColor3 = Color3.fromRGB(0, 0, 0)
-cmds.TextScaled = true
 cmds.TextSize = 22.000
 cmds.TextWrapped = true
 cmds.TextXAlignment = Enum.TextXAlignment.Left
@@ -148,13 +133,22 @@ end)
 closebuton.MouseButton1Down:Connect(function()
 	maingui:Destroy()
 end)
+local FrameObject = mainframe
+local Open = false
+local UserInputService = game:GetService("UserInputService")
 
-minimizebutton.MouseButton1Down:Connect(function()
-	execbox.Text = "just drag down lol 3"
-	wait(1)
-	execbox.Text = "just drag down lol 2"
-	wait(1)
-	execbox.Text = "just drag down lol 1"
-	wait(1)
-	execbox.Text = ""
+UserInputService.InputBegan:Connect(function(Input, gameprocess)
+	if not gameprocess then
+		if Input.KeyCode == Enum.KeyCode.Insert then -- Change M to your prefered keybind
+			if Open then
+				Open = false
+				script.Parent.Stats.Visible = true -- Change Stats to whatever your frame is called
+			else
+				Open = true
+				script.Parent.Stats.Visible = false -- Change Stats to whatever your frame is called
+				
+			end
+			
+		end
+	end
 end)
