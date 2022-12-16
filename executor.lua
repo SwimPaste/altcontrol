@@ -1,4 +1,5 @@
 --minor fix
+local UserInputService = game:GetService("UserInputService")
 local maingui = Instance.new("ScreenGui")
 local mainframe = Instance.new("Frame")
 local topbar = Instance.new("Frame")
@@ -117,7 +118,6 @@ clearbutton.Font = Enum.Font.SourceSans
 clearbutton.Text = "clear"
 clearbutton.TextColor3 = Color3.fromRGB(0, 0, 0)
 clearbutton.TextSize = 14.000
-
 clearbutton.MouseButton1Down:Connect(function()
 	execbox.Text = ""
 end)
@@ -133,22 +133,8 @@ end)
 closebuton.MouseButton1Down:Connect(function()
 	maingui:Destroy()
 end)
-local FrameObject = mainframe
-local Open = false
-local UserInputService = game:GetService("UserInputService")
-
-UserInputService.InputBegan:Connect(function(Input, gameprocess)
-	if not gameprocess then
-		if Input.KeyCode == Enum.KeyCode.Insert then -- Change M to your prefered keybind
-			if Open then
-				Open = false
-				script.Parent.Stats.Visible = true -- Change Stats to whatever your frame is called
-			else
-				Open = true
-				script.Parent.Stats.Visible = false -- Change Stats to whatever your frame is called
-				
-			end
-			
-		end
+UserInputService.InputBegan:Connect(function(input,gameProccesedEvent)
+	if input.KeyCode == Enum.KeyCode.Insert then -- keybind for when it hides and shows
+		mainframe.Visible = not mainframe.Visible
 	end
 end)
