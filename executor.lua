@@ -84,6 +84,7 @@ execbox.TextColor3 = Color3.fromRGB(0, 0, 0)
 execbox.TextSize = 14.000
 execbox.TextXAlignment = Enum.TextXAlignment.Left
 execbox.TextYAlignment = Enum.TextYAlignment.Top
+execbox.ClearTextOnFocus = false
 
 cmds.Name = "cmds"
 cmds.Parent = mainframe
